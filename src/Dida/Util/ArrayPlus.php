@@ -1,8 +1,10 @@
 <?php
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+/**
+ * Dida Framework  -- A Rapid Development Framework
+ * Copyright (c) Zeupin LLC. (http://zeupin.com)
+ *
+ * Licensed under The MIT License.
+ * Redistributions of files MUST retain the above copyright notice.
  */
 
 namespace Dida\Util;
