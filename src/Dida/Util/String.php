@@ -94,4 +94,24 @@ class String
         // 其它返回false
         return false;
     }
+
+
+    /**
+     * 生成随机字符串
+     *
+     * @param int $num     字母个数
+     * @param string $set  字符串的可用字符
+     */
+    public static function randomString($num = 32, $set = null)
+    {
+        if (!$set) {
+            $set = "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
+        }
+        $len = strlen($set);
+        $r = [];
+        for ($i = 0; $i < $num; $i++) {
+            $r[] = substr($set, mt_rand(0, $len - 1), 1);
+        }
+        return implode('', $r);
+    }
 }
