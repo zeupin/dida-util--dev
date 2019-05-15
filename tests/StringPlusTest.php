@@ -1,5 +1,4 @@
 <?php
-
 /**
  * Dida Framework  -- A Rapid Development Framework
  * Copyright (c) Zeupin LLC. (http://zeupin.com)
@@ -9,25 +8,26 @@
  */
 use \PHPUnit\Framework\TestCase;
 use \Dida\Debug\Debug;
-use \Dida\Util\String;
+use \Dida\Util\StringPlus;
+
 
 /**
- * StringTest
+ * StringPlusTest
  */
-class StringTest extends TestCase
+class StringPlusTest extends TestCase
 {
 
 
     public function test_matchPrefix()
     {
-        $this->assertTrue(String::matchPrefix("foo_abcd", 'foo_'));
-        $this->assertTrue(String::matchPrefix("foo_abcd", null));
+        $this->assertTrue(StringPlus::matchPrefix("foo_abcd", 'foo_'));
+        $this->assertTrue(StringPlus::matchPrefix("foo_abcd", null));
     }
 
 
     public function test_matchSuffix()
     {
-        $this->assertTrue(String::matchSuffix('foo1234.php', '.php'));
-        $this->assertTrue(String::matchSuffix("foo1234.php", [".php", ".txt"]));
+        $this->assertTrue(StringPlus::matchSuffix('foo1234.php', '.php'));
+        $this->assertTrue(StringPlus::matchSuffix("foo1234.php", [".php", ".txt"]));
     }
 }

@@ -9,15 +9,16 @@
 
 namespace Dida\Util;
 
+
 /**
- * String
+ * StringPlus 字符串扩展类
  */
-class String
+class StringPlus
 {
     /**
      * Version
      */
-    const VERSION = '20171115';
+    const VERSION = '20190515';
 
 
     /**
