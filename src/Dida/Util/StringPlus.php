@@ -15,6 +15,7 @@ namespace Dida\Util;
  */
 class StringPlus
 {
+
     /**
      * Version
      */
@@ -47,7 +48,8 @@ class StringPlus
             foreach ($prefixes as $prefix) {
                 if (is_string($prefix)) {
                     $len = mb_strlen($prefix);
-                    if (mb_substr($str, 0, $len) === $prefix) return true;
+                    if (mb_substr($str, 0, $len) === $prefix)
+                        return true;
                 }
             }
             return false;
