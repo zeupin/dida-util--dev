@@ -9,15 +9,17 @@
 
 namespace Dida\Util;
 
+
 /**
- * String
+ * StringPlus 字符串扩展类
  */
-class String
+class StringPlus
 {
+
     /**
      * Version
      */
-    const VERSION = '20171115';
+    const VERSION = '20190515';
 
 
     /**
@@ -46,7 +48,8 @@ class String
             foreach ($prefixes as $prefix) {
                 if (is_string($prefix)) {
                     $len = mb_strlen($prefix);
-                    if (mb_substr($str, 0, $len) === $prefix) return true;
+                    if (mb_substr($str, 0, $len) === $prefix)
+                        return true;
                 }
             }
             return false;
