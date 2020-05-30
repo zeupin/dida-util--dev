@@ -17,8 +17,40 @@ class FileSystem
     /**
      * Version
      */
-    const VERSION = '20171115';
+    const VERSION = '20200530';
 
+    /**
+     * 删除一个指定目录
+     *
+     */
+    public static function delDir($dir)
+    {
+        if (!is_dir($dir)) {
+            return false;
+        }
+
+        $files = scandir($dir);
+
+        foreach ($files as $file) {
+            if ($file === '.' || $file === '..') {
+                continue;
+            }
+
+            $path = $dir . DIRECTORY_SEPARATOR . $file ;
+
+            // 递归删除子目录和子文件
+            if (is_dir($path)) {
+                $result = self::delDir($path);
+            } else {
+                $result = unlink($path);
+            }
+            if ($result === false) {
+                return false;
+            }
+    
+            return rmdir($dir);
+        }
+    }
 
     /**
      * 获取指定目录下的指定类型的文件。
@@ -38,7 +70,6 @@ class FileSystem
 
         // 准备忽略文件列表
         if ($ignores === null) {
-
         } elseif (is_string($ignores)) {
             $ignores = explode(',', $ignores);
             foreach ($ignores as $key => $item) {
@@ -54,7 +85,6 @@ class FileSystem
 
         // 准备文件扩展名列表
         if ($extensions === null) {
-
         } elseif (is_string($extensions)) {
             $extensions = explode(',', $extensions);
             foreach ($extensions as $key => $item) {
@@ -127,7 +157,9 @@ class FileSystem
             }
 
             // 如果已经全部扫描完，结束
-            if (!$todo) break;
+            if (!$todo) {
+                break;
+            }
         }
 
         // 返回结果
