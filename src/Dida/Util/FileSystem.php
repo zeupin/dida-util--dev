@@ -29,8 +29,8 @@ class FileSystem
             return false;
         }
 
+        // 递归删除子目录和子文件
         $files = scandir($dir);
-
         foreach ($files as $file) {
             if ($file === '.' || $file === '..') {
                 continue;
@@ -38,7 +38,6 @@ class FileSystem
 
             $path = $dir . DIRECTORY_SEPARATOR . $file ;
 
-            // 递归删除子目录和子文件
             if (is_dir($path)) {
                 $result = self::delDir($path);
             } else {
@@ -47,9 +46,10 @@ class FileSystem
             if ($result === false) {
                 return false;
             }
-    
-            return rmdir($dir);
         }
+
+        // 删除当前目录
+        return rmdir($dir);
     }
 
     /**
